@@ -1,0 +1,9 @@
+nav.navbar.navbar-default {
+  margin-bottom: 0;
+}
+
+.nav-link.active{
+  background-color: #a3a4a5;
+  color: black;
+  border-radius: 10%;
+}
