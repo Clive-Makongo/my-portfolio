@@ -8,7 +8,12 @@
     {
         "title": "Weather Dashboard",
         "pages": "https://clive-makongo.github.io/weatherDashboard/",
-        "github": "https://github.com/Clive-Makongo/passwordGen",
-        "image":""
+        "github": "https://github.com/Clive-Makongo/weatherDashboard",
+        "image":"https://github.com/Clive-Makongo/weatherDashboard/blob/main/assets/10-server-side-apis-challenge-demo.png?raw=true"
+    },
+    {
+        "title": "Work Day Scheduler",
+        "pages": "https://clive-makongo.github.io/dayPlanner/",
+        "github": "https://github.com/Clive-Makongo/passwordGen"
     }
 ]
