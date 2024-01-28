@@ -5,22 +5,26 @@ import Row from '../components/Row';
 import Col from '../components/Col';
 import Image from '../components/Image';
 
+// Photos
+import headshot from '../assets/images/profile-pic.jpg'
+import hero from '../assets/images/02-hero-bg.jpg'
+
+
 function About() {
   return (
     <div>
-      <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg">
-        <h1>Clive Makong'o</h1>
+      <Hero backgroundImage={hero}>
+        <h1 style={{padding:30}}>Clive Makong'o</h1>
         <Container>
           <Row>
             <div style={{ display: 'flex', justifyContent: 'center'}} >
               <Col size="md-3">
-                <Image src="https://www.facebook.com/photo/?fbid=10220408155129671&set=a.1549974745020"/>
+                <Image src="https://github.com/Clive-Makongo/portfolio2/blob/main/assets/images/profile-pic.jpg?raw=true" />
             </Col>
             </div>
-            
           </Row>
         </Container>
-        <h2>Front End Web Developer</h2>
+        <h2 style={{ padding: 30 }}>Front End Web Developer</h2>
       </Hero>
       <h1>Clive Makong'o</h1>
       <p>

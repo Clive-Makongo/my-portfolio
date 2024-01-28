@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Password Generator",
+        "pages": "https://clive-makongo.github.io/passwordGen/",
+        "github":"https://github.com/Clive-Makongo/passwordGen",
+        "image":"https://github.com/Clive-Makongo/passwordGen/blob/main/assets/05-javascript-challenge-demo.png?raw=true"
+    },
+    {
+        "title": "Weather Dashboard",
+        "pages": "https://clive-makongo.github.io/weatherDashboard/",
+        "github": "https://github.com/Clive-Makongo/passwordGen",
+        "image":""
+    }
+]
