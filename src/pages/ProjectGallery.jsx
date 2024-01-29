@@ -1,7 +1,9 @@
 import { React, useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
+import About from './About';
 import Project from '../components/Project';
 import galleryData from '../../gallery.json';
+import Navbar from '../components/Navbar';
 
 function ProjectGallery() {
     const [gallery, setGallery] = useState(galleryData);
@@ -19,7 +21,7 @@ function ProjectGallery() {
                 <div className='project-buttons d-flex justify-content-between'>
                     {gallery.map((project) => (
                         <div id={`project${project.id}`}>
-                            <Link to={`project${project.id}`} role="button" className="btn btn-link">
+                            <Link to="project" role="button" className="btn btn-link">
                                 <button>
                                     {project.title}
                                 </button>
@@ -27,14 +29,12 @@ function ProjectGallery() {
                         </div>
                     ))}
                 </div>
+            </div>
+            <div className='load-projects'>
                 <Routes>
-                    <Route path="project1" element={
-                        <Project title="title"/>
-                    } />
+                    <Route path="project" element={<Project props={galleryData} />} />
                 </Routes>
             </div>
-
-            <Project title={galleryData[0].title } src={galleryData[2].image} />
         </div>
     );
 }
