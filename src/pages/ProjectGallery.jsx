@@ -1,17 +1,40 @@
-import React from 'react';
+import { React, useState } from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
+import Project from '../components/Project';
+import galleryData from '../../gallery.json';
 
 function ProjectGallery() {
+    const [gallery, setGallery] = useState(galleryData);
+
+    const loadProject = (id) => {
+        const project = galleryData.filter((project) => project.id === id);
+        setGallery(project);
+     }
+
+    
     return (
         <div>
-            <h1>About Page</h1>
-            <p>
-                Nunc pharetra finibus est at efficitur. Praesent sed congue diam.
-                Integer gravida dui mauris, ut interdum nunc egestas sed. Aenean sed
-                mollis diam. Nunc aliquet risus ac finibus porta. Nam quis arcu non
-                lectus tincidunt fermentum. Suspendisse aliquet orci porta quam semper
-                imperdiet. Praesent euismod mi justo, faucibus scelerisque risus cursus
-                in. Sed rhoncus mollis diam, sit amet facilisis lectus blandit at.
-            </p>
+            <div className='container choose-project'>
+                <h1>Choose Project</h1>
+                <div className='project-buttons d-flex justify-content-between'>
+                    {gallery.map((project) => (
+                        <div id={`project${project.id}`}>
+                            <Link to={`project${project.id}`} role="button" className="btn btn-link">
+                                <button>
+                                    {project.title}
+                                </button>
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+                <Routes>
+                    <Route path="project1" element={
+                        <Project title="title"/>
+                    } />
+                </Routes>
+            </div>
+
+            <Project title={galleryData[0].title } src={galleryData[2].image} />
         </div>
     );
 }

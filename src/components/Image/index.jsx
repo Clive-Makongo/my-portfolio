@@ -3,7 +3,7 @@ import './style.css';
 
 function Image(props) {
     return (
-        <img src={props.src} alt="" />
+        <img className={props.class} id={props.id} src={props.src} alt="" />
     )
 }
 

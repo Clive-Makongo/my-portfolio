@@ -19,7 +19,7 @@ function About() {
           <Row>
             <div style={{ display: 'flex', justifyContent: 'center'}} >
               <Col size="md-3">
-                <Image src="https://github.com/Clive-Makongo/portfolio2/blob/main/assets/images/profile-pic.jpg?raw=true" />
+                <Image class="about" id="about-me-pic" src="https://github.com/Clive-Makongo/portfolio2/blob/main/assets/images/profile-pic.jpg?raw=true" />
             </Col>
             </div>
           </Row>
