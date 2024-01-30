@@ -1,0 +1,18 @@
+h1, p, h2 {
+    padding: 2%;
+    text-align: center;
+}
+
+h1 {
+    border-bottom: 1px solid black;
+}
+
+.contacts-col {
+    margin: 5%;
+
+}
+
+#contacts-text{
+    text-align: left;
+    padding: 2%;
+}
