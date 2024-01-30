@@ -48,6 +48,8 @@ Remember, "good" design is subjective. Your site should look "polished" and "pro
   6. [ ] Project
   7. [ ] Contact
 
+  "homepage": "https://Clive-Makongo.github.io/my-portfolio"
+
 ### Required Component Content
 
 * [ ] App:
