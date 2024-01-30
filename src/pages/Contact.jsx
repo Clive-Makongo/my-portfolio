@@ -11,7 +11,7 @@ function Contact() {
       <h1>Contact Page</h1>
       <Container className='contacts'>
         <Row>
-          <Col className="contacts-col d-flex flex-column align-items-end" size="md-3 sm-12" size="md-3 sm-12">
+          <Col className="contacts-col d-flex flex-column align-items-end" size="md-3 sm-12">
             <h2 className='contacts-text'><strong>Email:</strong> <br />clivemakongo@gmail.com</h2>
             <h2 className='contacts-text'> <strong>GitHub</strong>: <br />https://github.com/Clive-Makongo</h2>
             
