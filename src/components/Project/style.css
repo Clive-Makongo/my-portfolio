@@ -1,0 +1,29 @@
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px black solid;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+#project-pics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+}

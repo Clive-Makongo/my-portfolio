@@ -3,7 +3,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import About from './About';
 import Project from '../components/Project';
 import galleryData from '../../gallery.json';
-import Navbar from '../components/Navbar';
+import CardBtn from '../components/CardBtn';
 
 function ProjectGallery() {
     const [gallery, setGallery] = useState(galleryData);
@@ -19,12 +19,13 @@ function ProjectGallery() {
             <div className='container choose-project'>
                 <h1>Choose Project</h1>
                 <div className='project-buttons d-flex justify-content-between'>
-                    {gallery.map((project) => (
+                    {galleryData.map((project) => (
                         <div id={`project${project.id}`}>
                             <Link to="project" role="button" className="btn btn-link">
-                                <button>
-                                    {project.title}
-                                </button>
+                                <CardBtn
+                                    text={project.title}
+                                    onClick={() => loadProject(project.id)}
+                                />
                             </Link>
                         </div>
                     ))}
@@ -32,7 +33,7 @@ function ProjectGallery() {
             </div>
             <div className='load-projects'>
                 <Routes>
-                    <Route path="project" element={<Project props={galleryData} />} />
+                    <Route path="project" element={<Project {...gallery}/>} />
                 </Routes>
             </div>
         </div>

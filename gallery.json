@@ -1,5 +1,12 @@
 [
     {
+        "id": "0",
+        "title": "Console Finances",
+        "pages": "https://clive-makongo.github.io/Console-Finances/",
+        "github": "https://github.com/Clive-Makongo/Console-Finances",
+        "image": "https://github.com/Clive-Makongo/Console-Finances/blob/main/assets/images/Untitled.jpg?raw=true"
+    },
+    {
         "id": "1",
         "title": "Password Generator",
         "pages": "https://clive-makongo.github.io/passwordGen/",
@@ -23,8 +30,15 @@
     {
         "id": "4",
         "title": "Code Quiz",
-        "pages": "",
+        "pages": "https://clive-makongo.github.io/codeQuiz/",
         "github": "https://clive-makongo.github.io/codeQuiz/",
-        "image":""
+        "image":"https://github.com/Clive-Makongo/codeQuiz/blob/main/assets/images/08-web-apis-challenge-demo.gif?raw=true"
+    },
+    {
+        "id": "5",
+        "title": "Mood App",
+        "pages": "https://angelica-zach.github.io/Mood-App/",
+        "github": "https://github.com/angelica-zach/Mood-App",
+        "image": "https://github.com/Clive-Makongo/Mood-Application/blob/main/assets/ezgif-2-d66232c556.gif?raw=true"
     }
 ]
