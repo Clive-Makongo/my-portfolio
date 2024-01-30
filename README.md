@@ -4,8 +4,8 @@
   this is my portfolio
 
 ## screenshot
-  ![screenshot](./dist/assets/about.png)
-  ![screenshot](./dist/assets/gallery.png)
+  ![screenshot](./assets/about.png)
+  ![screenshot](./assets/gallery.png)
 
   ## Contributing
   Clive Makong'o
