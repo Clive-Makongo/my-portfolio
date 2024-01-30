@@ -11,8 +11,7 @@ function ProjectGallery() {
     const loadProject = (id) => {
         const project = galleryData.filter((project) => project.id === id);
         setGallery(project);
-     }
-
+    }
     
     return (
         <div>
@@ -20,10 +19,11 @@ function ProjectGallery() {
                 <h1>Choose Project</h1>
                 <div className='project-buttons d-flex justify-content-between'>
                     {galleryData.map((project) => (
-                        <div id={`project${project.id}`}>
+                        <div key={project.id} id={`project${project.id}`}>
                             <Link to="project" role="button" className="btn btn-link">
                                 <CardBtn
                                     text={project.title}
+                                    
                                     onClick={() => loadProject(project.id)}
                                 />
                             </Link>

@@ -1,22 +1,26 @@
 import React from 'react';
+import Container from '../components/Container';
+import Row from '../components/Row';
+import Col from '../components/Col';
+import SearchForm from '../components/SearchForm';
+
 
 function Contact() {
   return (
     <div>
       <h1>Contact Page</h1>
-      <p>
-        Integer cursus bibendum sem non pretium. Vestibulum in aliquet sem, quis
-        molestie urna. Aliquam semper ultrices varius. Aliquam faucibus sit amet
-        magna a ultrices. Aenean pellentesque placerat lacus imperdiet
-        efficitur. In felis nisl, luctus non ante euismod, tincidunt bibendum
-        mi. In a molestie nisl, eu sodales diam. Nam tincidunt lacus quis magna
-        posuere, eget tristique dui dapibus. Maecenas fermentum elementum
-        faucibus. Quisque nec metus vestibulum, egestas massa eu, sollicitudin
-        ipsum. Nulla facilisi. Sed ut erat ligula. Nam tincidunt nunc in nibh
-        dictum ullamcorper. Class aptent taciti sociosqu ad litora torquent per
-        conubia nostra, per inceptos himenaeos. Etiam ornare rutrum felis at
-        rhoncus. Etiam vel condimentum magna, quis tempor nulla.
-      </p>
+      <Container className='contacts'>
+        <Row>
+          <Col className="contacts-col d-flex flex-column align-items-end" size="md-3 sm-12" size="md-3 sm-12">
+            <h2 className='contacts-text'><strong>Email:</strong> <br />clivemakongo@gmail.com</h2>
+            <h2 className='contacts-text'> <strong>GitHub</strong>: <br />https://github.com/Clive-Makongo</h2>
+            
+          </Col>
+          <Col className="contacts-col d-flex align-items-end" size="md-3 sm-12">
+           <SearchForm />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
