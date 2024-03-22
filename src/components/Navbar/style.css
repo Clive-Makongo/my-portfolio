@@ -2,8 +2,15 @@ nav.navbar.navbar-default {
   margin-bottom: 0;
 }
 
-.nav-link.active{
-  background-color: #a3a4a5;
+
+.nav-link.active {
+  background-color: #bec1c4;
   color: black;
-  border-radius: 10%;
+  border-radius: 12px;
+  border: black 1px solid;
+}
+
+.nav-item:hover {
+  background-color: #bec1c4;
+  border-radius: 12px;
 }
