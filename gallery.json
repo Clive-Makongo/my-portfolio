@@ -1,44 +1,44 @@
 [
-    {
-        "id": "0",
-        "title": "Console Finances",
-        "pages": "https://clive-makongo.github.io/Console-Finances/",
-        "github": "https://github.com/Clive-Makongo/Console-Finances",
-        "image": "https://github.com/Clive-Makongo/Console-Finances/blob/main/assets/images/Untitled.jpg?raw=true"
-    },
-    {
-        "id": "1",
-        "title": "Password Generator",
-        "pages": "https://clive-makongo.github.io/passwordGen/",
-        "github":"https://github.com/Clive-Makongo/passwordGen",
-        "image":"https://github.com/Clive-Makongo/passwordGen/blob/main/assets/05-javascript-challenge-demo.png?raw=true"
-    },
-    {
-        "id": "2",
-        "title": "Weather Dashboard",
-        "pages": "https://clive-makongo.github.io/weatherDashboard/",
-        "github": "https://github.com/Clive-Makongo/weatherDashboard",
-        "image":"https://github.com/Clive-Makongo/weatherDashboard/blob/main/assets/10-server-side-apis-challenge-demo.png?raw=true"
-    },
-    {
-        "id": "3",
-        "title": "Work Day Scheduler",
-        "pages": "https://clive-makongo.github.io/dayPlanner/",
-        "github": "https://github.com/Clive-Makongo/passwordGen",
-        "image":"https://raw.githubusercontent.com/Clive-Makongo/dayPlanner/main/images/screencapture-file-C-Users-Clive-dayPlanner-starter-index-html-2023-12-12-20_19_55.jpeg"
-    },
-    {
-        "id": "4",
-        "title": "Code Quiz",
-        "pages": "https://clive-makongo.github.io/codeQuiz/",
-        "github": "https://clive-makongo.github.io/codeQuiz/",
-        "image":"https://github.com/Clive-Makongo/codeQuiz/blob/main/assets/images/08-web-apis-challenge-demo.gif?raw=true"
-    },
-    {
-        "id": "5",
-        "title": "Mood App",
-        "pages": "https://angelica-zach.github.io/Mood-App/",
-        "github": "https://github.com/angelica-zach/Mood-App",
-        "image": "https://github.com/Clive-Makongo/Mood-Application/blob/main/assets/ezgif-2-d66232c556.gif?raw=true"
-    }
+  {
+    "id": "0",
+    "title": "Console Finances",
+    "pages": "https://clive-makongo.github.io/Console-Finances/",
+    "github": "https://github.com/Clive-Makongo/Console-Finances",
+    "image": "https://github.com/Clive-Makongo/Console-Finances/blob/main/assets/images/Untitled.jpg?raw=true"
+  },
+  {
+    "id": "1",
+    "title": "Password Generator",
+    "pages": "https://clive-makongo.github.io/passwordGen/",
+    "github": "https://github.com/Clive-Makongo/passwordGen",
+    "image": "https://github.com/Clive-Makongo/passwordGen/blob/main/assets/05-javascript-challenge-demo.png?raw=true"
+  },
+  {
+    "id": "2",
+    "title": "Weather Dashboard",
+    "pages": "https://clive-makongo.github.io/weatherDashboard/",
+    "github": "https://github.com/Clive-Makongo/weatherDashboard",
+    "image": "https://github.com/Clive-Makongo/weatherDashboard/blob/main/assets/10-server-side-apis-challenge-demo.png?raw=true"
+  },
+  {
+    "id": "3",
+    "title": "Work Day Scheduler",
+    "pages": "https://clive-makongo.github.io/dayPlanner/",
+    "github": "https://github.com/Clive-Makongo/passwordGen",
+    "image": "https://raw.githubusercontent.com/Clive-Makongo/dayPlanner/main/images/screencapture-file-C-Users-Clive-dayPlanner-starter-index-html-2023-12-12-20_19_55.jpeg"
+  },
+  {
+    "id": "4",
+    "title": "Code Quiz",
+    "pages": "https://clive-makongo.github.io/codeQuiz/",
+    "github": "https://clive-makongo.github.io/codeQuiz/",
+    "image": "https://github.com/Clive-Makongo/codeQuiz/blob/main/assets/images/08-web-apis-challenge-demo.gif?raw=true"
+  },
+  {
+    "id": "5",
+    "title": "Mood App",
+    "pages": "https://angelica-zach.github.io/Mood-App/",
+    "github": "https://github.com/angelica-zach/Mood-App",
+    "image": "https://github.com/Clive-Makongo/Mood-Application/blob/main/assets/ezgif-2-d66232c556.gif?raw=true"
+  }
 ]
