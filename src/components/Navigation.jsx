@@ -9,12 +9,12 @@ function Navigation({ items }) {
         items.forEach((item, index) => {
             setTimeout(() => {
                 setDelayedItems((prevItems) => [...prevItems, item]);
-            }, index * 600); // Adjust the delay time as needed
+            }, index * 600);
         });
     }, [items]);
 
     return (
-        <motion.div className='w-3/12 hover:bg-opacity-60 rounded-xl hover:bg-indigo-800 p-4'>
+        <motion.div className='w-3/12 hover:bg-opacity-60 rounded-xl flex justify-center hover:bg-indigo-800 p-4'>
             <ul className='font-bold text-lg hover:text-white text-gray-400'>
                 {delayedItems.map((item) => (
                     <NavigationItem

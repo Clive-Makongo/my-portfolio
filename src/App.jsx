@@ -14,7 +14,7 @@ function App() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 2 }}
-      className='flex flex-col text-white text-neutral w-11/12'
+      className='flex flex-col text-white text-neutral w-full'
     >
       <Home/>
     </motion.div>

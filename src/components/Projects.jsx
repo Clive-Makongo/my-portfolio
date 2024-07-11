@@ -6,7 +6,7 @@ function Projects() {
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
-        const proj = Array(4).fill().map(() => (
+        const proj = Array(1).fill().map(() => (
             <ProjectCard />
             
         ));
@@ -19,7 +19,7 @@ function Projects() {
             initial={{ x: -1000 }}
             animate={{ x: 0 }}
             transition={{ type: "spring", stiffness: 40, duration: 1.5 }}
-            className='w-9/12 hover:bg-opacity-60 border-2 border-indigo-800 rounded-xl hover:bg-indigo-800 p-4 flex flex-row'>
+            className='w-9/12 hover:bg-opacity-60 border-2 border-indigo-800 rounded-xl hover:bg-indigo-800 p-2 flex flex-row'>
             {cards.map((card, index) => (
                 <motion.div
                     key={index}
