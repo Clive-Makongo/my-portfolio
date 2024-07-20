@@ -95,7 +95,7 @@ function Home() {
       <Header />
       <div className="flex flex-row mt-8">
         <motion.div
-          className="w-2/12 ml-10"
+          className="w-2/12 ml-10 h-[50vwh]"
           animate={{
             borderColor: ["#C084FC", "#818CF8", "#6366F1", "#C084FC"],
             transition: { duration: 0.01, repeat: Infinity }
