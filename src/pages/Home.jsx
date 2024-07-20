@@ -3,6 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Navbar from '../components/Navbar'
 import Header from "../components/Header";
+import ScrollMenu from "../components/ScrollMenu";
 import Description from "../components/Description";
 import Projects from "../components/Projects";
 import projectData from '../projects.json'
@@ -64,6 +65,8 @@ function ScrollReveal({ children }) {
 
 function Home() {
   const [navItems, setNavItems] = useState([]);
+  const [clickedLink, setClickedLink] = useState("");
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     generateNavItems(projectData);
@@ -76,6 +79,10 @@ function Home() {
       projectLink,
     }));
     setNavItems(items);
+  };
+
+  const handleProjectSelect = (projectLink) => {
+    setSelectedProject(projectLink);
   };
 
   return (
@@ -100,27 +107,26 @@ function Home() {
           >
             Projects
           </motion.h1>
-          {navItems.map((item) => (
+          <ScrollMenu items={navItems} onSelectProject={handleProjectSelect} />
+          {/* {navItems.map((item) => (
             <ScrollReveal key={item.id}>
               <motion.button
                 variants={itemVariants}
                 whileHover={{scale:1.05}}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => console.log(item.projectLink)}
-                className="flex flex-col my-10 mx-4 rounded-xl justify-evenly hover:bg-indigo-800 hover:rounded-2xl p-2 text-2xl text-white font-[9000]"
+                onClick={() => setClickedLink(item.projectLink)}
+                className="flex flex-col my-10 mx-4 rounded-xl justify-evenly hover:bg-indigo-800 hover:rounded-2xl p-2  text-white font-[9000]"
               >
                 {item.title}
               </motion.button>
             </ScrollReveal>
-          ))}
+          ))} */}
         </motion.div>
         <motion.div
-          className="w-8/12 flex justify-end flex-row hover:bg-opacity-60 border-2 border-indigo-800 rounded-xl hover:bg-indigo-800 p-2"
+          className="w-10/12 flex justify-end flex-row hover:bg-opacity-60 rounded-xl  h-[80vwh]"
           variants={itemVariants}
         >
-          <ScrollReveal>
-            <Projects />
-          </ScrollReveal>
+            <Projects link={selectedProject} />
         </motion.div>
       </div>
     </motion.div>
