@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 function Description() {
   return (
     <motion.p
-      initial={{ x: -600 }}
-      animate={{ x: 0 }}
-      transition={{ type: "spring", stiffness: 40, duration: 1.5 }}
+      nitial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 3 }}
       whileHover={{ scale: 1.02 }}
-      className="m-4 flex justify-center text-center"
+      className="m-4 bg-primary flex justify-center text-center"
     >
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta fugiat at
       ab ratione sit accusamus magni perspiciatis deserunt commodi numquam

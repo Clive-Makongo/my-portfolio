@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Navbar from '../components/Navbar'
 import Header from "../components/Header";
@@ -14,24 +14,61 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.3,
-      when: "beforeChildren",
-      staggerChildren: 0.1
+      duration: 0.5,
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const headerVariants = {
+  hidden: { y: -50, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { type: "tween", ease: "easeOut", duration: 0.5 }
+  }
+};
+
+const menuVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { 
+      type: "tween", 
+      ease: "easeInOut", 
+      duration: 0.6 
     }
   }
 };
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
-    y: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 300, duration: 0.4 }
+    y: 0,
+    transition: { 
+      type: "tween", 
+      ease: "easeOut", 
+      duration: 0.5 
+    }
   },
   hover: {
-    scale: 1.1,
-    transition: { duration: 0.2 }
+    scale: 1.05,
+    transition: { duration: 0.3, ease: "easeInOut" }
   }
+};
+
+const pageVariants = {
+  initial: { opacity: 0, y: 20 },
+  in: { opacity: 1, y: 0 },
+  out: { opacity: 0, y: -20 },
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 0.5
 };
 
 function ScrollReveal({ children }) {
@@ -52,11 +89,7 @@ function ScrollReveal({ children }) {
       ref={ref}
       animate={controls}
       initial="hidden"
-      variants={{
-        visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 50 }
-      }}
-      transition={{ duration: 0.5 }}
+      variants={itemVariants}
     >
       {children}
     </motion.div>
@@ -65,16 +98,32 @@ function ScrollReveal({ children }) {
 
 function Home() {
   const [navItems, setNavItems] = useState([]);
-  const [clickedLink, setClickedLink] = useState("");
+  const [showProjects, setShowProjects] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [loadProjects, setLoadProjects] = useState(false);
+  const [size, setSize] = useState({ width: undefined, height: undefined });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     generateNavItems(projectData);
   }, []);
 
   const generateNavItems = (data) => {
-    const items = Object.entries(data).map(([title, projectLink], id) => ({
-      id,
+    const items = Object.entries(data).map(([title, projectLink], index) => ({
+      id: `project-${index}`,
       title,
       projectLink,
     }));
@@ -83,6 +132,17 @@ function Home() {
 
   const handleProjectSelect = (projectLink) => {
     setSelectedProject(projectLink);
+    setClickedLink(true);
+  };
+
+  const handleHomeClick = () => {
+    setShowProjects(false);
+    setSelectedProject(null);
+  };
+
+  const handleProjectsClick = () => {
+    setShowProjects(true);
+    setSelectedProject(null);
   };
 
   return (
@@ -92,45 +152,72 @@ function Home() {
       variants={containerVariants}
       className="flex flex-col text-white text-neutral w-full"
     >
-      <Header />
+      <motion.div
+        className="flex flex-row justify-evenly"
+        variants={headerVariants}
+      >
+        <button onClick={handleHomeClick}>HOME</button>
+        <button onClick={handleProjectsClick}>Projects</button>
+        <Header />
+        <div>{JSON.stringify(size)}</div>
+      </motion.div>
       <div className="flex flex-row mt-8">
-        <motion.div
-          className="w-2/12 ml-10 h-[50vwh]"
-          animate={{
-            borderColor: ["#C084FC", "#818CF8", "#6366F1", "#C084FC"],
-            transition: { duration: 0.01, repeat: Infinity }
-          }}
-        >
-          <motion.h1
-            className="text-3xl font-bold m-4"
-            variants={itemVariants}
-          >
-            Projects
-          </motion.h1>
-          <ScrollMenu items={navItems} onSelectProject={handleProjectSelect} />
-          {/* {navItems.map((item) => (
-            <ScrollReveal key={item.id}>
-              <motion.button
-                variants={itemVariants}
-                whileHover={{scale:1.05}}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setClickedLink(item.projectLink)}
-                className="flex flex-col my-10 mx-4 rounded-xl justify-evenly hover:bg-indigo-800 hover:rounded-2xl p-2  text-white font-[9000]"
+        <AnimatePresence mode="wait">
+          {showProjects ? (
+            <motion.div
+              key="projects-view"
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+              className="w-full flex"
+            >
+              <motion.div
+                className="w-2/12 ml-2 h-[50vwh]"
+                variants={menuVariants}
+                animate={{
+                  borderColor: ["#C084FC", "#818CF8", "#6366F1", "#C084FC"],
+                  transition: { duration: 3, repeat: Infinity }
+                }}
               >
-                {item.title}
-              </motion.button>
-            </ScrollReveal>
-          ))} */}
-        </motion.div>
-        <motion.div
-          className="w-10/12 flex justify-end flex-row hover:bg-opacity-60 rounded-xl  h-[80vwh]"
-          variants={itemVariants}
-        >
-            <Projects link={selectedProject} />
-        </motion.div>
+                <motion.h1
+                  className="text-3xl font-bold m-4 mb-4"
+                  variants={itemVariants}
+                >
+                  Projects
+                </motion.h1>
+                <ScrollMenu items={navItems} onSelectProject={handleProjectSelect} />
+              </motion.div>
+              <motion.div
+                className="w-10/12 flex justify-end flex-row hover:bg-opacity-60 rounded-xl h-[80vwh]"
+                variants={itemVariants}
+              >
+                {selectedProject ? (
+                  <Projects link={selectedProject} />
+                ) : (
+                  <div>Select a project from the menu</div>
+                )}
+              </motion.div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="description"
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+              className="w-full"
+            >
+              <Description />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.div>
   );
 }
+
 
 export default Home;

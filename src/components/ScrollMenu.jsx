@@ -4,6 +4,15 @@ import { motion } from 'framer-motion';
 const ScrollMenu = ({ items, onSelectProject }) => {
     const [selectedItemId, setSelectedItemId] = useState(null);
     const menuRef = useRef(null);
+    const [delayedItems, setDelayedItems] = useState([]);
+
+    useEffect(() => {
+        items.forEach((item, index) => {
+            setTimeout(() => {
+                setDelayedItems((prevItems) => [...prevItems, item]);
+            }, index * 600);
+        });
+    }, [items]);
 
     useEffect(() => {
         const handleWheel = (e) => {
@@ -51,11 +60,17 @@ const ScrollMenu = ({ items, onSelectProject }) => {
                 ref={menuRef}
                 className="h-[400px] w-full justify-center overflow-y-hidden snap-y snap-mandatory scrollbar-hide"
             >
-                {items.map((item) => (
+                {delayedItems.map((item) => (
                     <motion.div
                         key={item.id}
                         className={`snap-start my-8 mx-auto py-4 px-2 cursor-pointer hover:bg-indigo-800 transition-colors duration-200 rounded-xl w-1/2 ${selectedItemId === item.id ? 'bg-indigo-800' : 'hover:bg-indigo-800'
                             }`}
+                        initial={{ x: -100 }}
+                        animate={{
+                            x: 0,
+                            opacity: 1,
+                            transition: { type: "spring", stiffness: 300, duration: 0.4 }
+}}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => handleItemClick(item)}
