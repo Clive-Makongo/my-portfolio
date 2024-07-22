@@ -132,7 +132,7 @@ function Home() {
 
   const handleProjectSelect = (projectLink) => {
     setSelectedProject(projectLink);
-    setClickedLink(true);
+    
   };
 
   const handleHomeClick = () => {

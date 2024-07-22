@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { v4 as uuidv4 } from "uuid";
 
 const ScrollMenu = ({ items, onSelectProject }) => {
     const [selectedItemId, setSelectedItemId] = useState(null);
@@ -7,12 +8,20 @@ const ScrollMenu = ({ items, onSelectProject }) => {
     const [delayedItems, setDelayedItems] = useState([]);
 
     useEffect(() => {
+        console.log("before function starts")
         items.forEach((item, index) => {
+            console.log("after funtion starts")
             setTimeout(() => {
                 setDelayedItems((prevItems) => [...prevItems, item]);
             }, index * 600);
         });
-    }, [items]);
+        
+    }, []);
+
+    useEffect(() => {
+        console.log("Items: ", items);
+        console.log("Delayed items: ", delayedItems);
+    }, [delayedItems])
 
     useEffect(() => {
         const handleWheel = (e) => {
@@ -62,7 +71,7 @@ const ScrollMenu = ({ items, onSelectProject }) => {
             >
                 {delayedItems.map((item) => (
                     <motion.div
-                        key={item.id}
+                        key={uuidv4()}
                         className={`snap-start my-8 mx-auto py-4 px-2 cursor-pointer hover:bg-indigo-800 transition-colors duration-200 rounded-xl w-1/2 ${selectedItemId === item.id ? 'bg-indigo-800' : 'hover:bg-indigo-800'
                             }`}
                         initial={{ x: -100 }}
@@ -70,7 +79,8 @@ const ScrollMenu = ({ items, onSelectProject }) => {
                             x: 0,
                             opacity: 1,
                             transition: { type: "spring", stiffness: 300, duration: 0.4 }
-}}
+                        
+                        }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => handleItemClick(item)}
