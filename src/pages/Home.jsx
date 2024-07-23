@@ -132,7 +132,7 @@ function Home() {
 
   const handleProjectSelect = (projectLink) => {
     setSelectedProject(projectLink);
-    setClickedLink(true);
+    //setClickedLink(true);
   };
 
   const handleHomeClick = () => {
@@ -160,6 +160,7 @@ function Home() {
         <button onClick={handleProjectsClick}>Projects</button>
         <Header />
         <div>{JSON.stringify(size)}</div>
+        <button onClick={handleProjectsClick}>CV</button>
       </motion.div>
       <div className="flex flex-row mt-8">
         <AnimatePresence mode="wait">
@@ -174,7 +175,7 @@ function Home() {
               className="w-full flex"
             >
               <motion.div
-                className="w-2/12 ml-2 h-[50vwh]"
+                className="w-2/12 ml-2 h-[50vwh] border rounded-xl"
                 variants={menuVariants}
                 animate={{
                   borderColor: ["#C084FC", "#818CF8", "#6366F1", "#C084FC"],
@@ -196,7 +197,7 @@ function Home() {
                 {selectedProject ? (
                   <Projects link={selectedProject} />
                 ) : (
-                  <div>Select a project from the menu</div>
+                    <div className="w-full text-center flex items-center justify-center">Select a project from the menu</div>
                 )}
               </motion.div>
             </motion.div>

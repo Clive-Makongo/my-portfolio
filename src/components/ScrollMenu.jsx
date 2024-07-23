@@ -12,7 +12,7 @@ const ScrollMenu = ({ items, onSelectProject }) => {
                 setDelayedItems((prevItems) => [...prevItems, item]);
             }, index * 600);
         });
-    }, [items]);
+    }, []);
 
     useEffect(() => {
         const handleWheel = (e) => {
@@ -60,7 +60,8 @@ const ScrollMenu = ({ items, onSelectProject }) => {
                 ref={menuRef}
                 className="h-[400px] w-full justify-center overflow-y-hidden snap-y snap-mandatory scrollbar-hide"
             >
-                {delayedItems.map((item) => (
+                {delayedItems.map((item, index) => (
+                    
                     <motion.div
                         key={item.id}
                         className={`snap-start my-8 mx-auto py-4 px-2 cursor-pointer hover:bg-indigo-800 transition-colors duration-200 rounded-xl w-1/2 ${selectedItemId === item.id ? 'bg-indigo-800' : 'hover:bg-indigo-800'
@@ -75,7 +76,8 @@ const ScrollMenu = ({ items, onSelectProject }) => {
                         whileTap={{ scale: 0.95 }}
                         onClick={() => handleItemClick(item)}
                     >
-                        {item.title}
+                        {item.title}: {index}
+                        <hr />
                     </motion.div>
                 ))}
             </div>
