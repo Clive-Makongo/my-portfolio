@@ -64,7 +64,7 @@ const ScrollMenu = ({ items, onSelectProject }) => {
                     
                     <motion.div 
                         key={item.id}
-                        className={`snap-start my-8 mx-auto py-4 p-2 cursor-pointer hover:bg-indigo-600 hover:text-black font-bold transition-colors divide-y divide-blue-200 duration-200 rounded-xl w-4/5  ${selectedItemId === item.id ? 'bg-indigo-800' : 'hover:bg-indigo-800'
+                        className={`snap-start my-8 mx-auto py-4 p-2 cursor-pointer hover:bg-indigo-600 hover:text-black font-bold transition-colors divide-y divide-blue-200 duration-200 rounded-xl w-4/5  ${selectedItemId === item.id ? 'bg-indigo-600 border-2 border-indigo-900' : 'hover:bg-indigo-600 border-2 border-indigo-90'
                             }`}
                         initial={{ x: -100 }}
                         animate={{
