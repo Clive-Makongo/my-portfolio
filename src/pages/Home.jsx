@@ -146,6 +146,9 @@ function Home() {
   };
 
   return (
+  <>
+
+    { size.width >= 768 ? (
     <motion.div
       initial="hidden"
       animate="visible"
@@ -216,7 +219,14 @@ function Home() {
           )}
         </AnimatePresence>
       </div>
-    </motion.div>
+    </motion.div >
+      ) : (
+          <div>MOBILE
+            <Description/>
+          </div>
+      
+      )}
+    </>
   );
 }
 
