@@ -7,7 +7,7 @@ function Header() {
       animate={{ x: 0 }}
       transition={{ type: "spring", stiffness: 40, duration: 5 }}
       whileHover={{ scale: 1.02 }}
-      className="text-5xl font-extrabold mx-8 flex justify-center hover:text-purple-50 0"
+      className="text-5xl font-extrabold font-mono mx-8 flex justify-center hover:text-purple-50 0"
     >
       Clive Makong'o
     </motion.h1>

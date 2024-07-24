@@ -3,16 +3,13 @@ import img from '../assets/images/profile-pic.jpg'
 
 function Description() {
   return (
-    <div className="flex flex-row m-4">
-      <div className="w-2/5 ">
-        <img src={img} alt="" className="border rounded-full" />
-      </div>
+    <div className="flex flex-row m-4 h-[50vwh]">
       <motion.p
         nitial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 3 }}
         whileHover={{ scale: 1.02 }}
-        className="m-4 bg-primary flex font-bold justify-center text-center flex-col w-3/5"
+        className="m-4 bg-primary flex font-bold justify-center text-center flex-col"
       >
         Clive Makong'o is a dynamic Front-End Web Developer with emerging experience in Back-End technologies, currently based in London. With a strong foundation in creating responsive and intuitive user interfaces, Clive leverages modern JavaScript frameworks to build engaging web applications.
         <hr />
@@ -25,10 +22,8 @@ function Description() {
         With a passion for continuous learning, Clive's interests extend beyond web development into Computer Science, Mathematics, Physics, and Philosophy. This multidisciplinary approach allows him to bring unique perspectives and innovative solutions to his work.
         <hr />
 
-        Clive is a graduate of the Front End Web Development Boot Camp from edX, where he gained intensive training in a wide array of web technologies. His educational background also includes strong performances in A-Levels and GCSEs, particularly excelling in Mathematics and Sciences.
+        Clive is a graduate of the Front End Web Development Boot Camp from edX, where he gained intensive training in a wide array of web technologies.
         <hr />
-
-        As a developer who combines technical expertise with a customer-centric approach, Clive is well-positioned to contribute to challenging projects that require both creative and analytical thinking.
       </motion.p>
     </div>
   );
