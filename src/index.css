@@ -7,7 +7,7 @@ body {
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;
+  display: block;
 }
 
 .scrollbar-hide {

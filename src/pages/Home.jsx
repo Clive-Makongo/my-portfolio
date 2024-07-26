@@ -71,30 +71,30 @@ const pageTransition = {
   duration: 0.5
 };
 
-function ScrollReveal({ children }) {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+// function ScrollReveal({ children }) {
+//   const controls = useAnimation();
+//   const [ref, inView] = useInView({
+//     triggerOnce: true,
+//     threshold: 0.1,
+//   });
 
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
+//   useEffect(() => {
+//     if (inView) {
+//       controls.start("visible");
+//     }
+//   }, [controls, inView]);
 
-  return (
-    <motion.div
-      ref={ref}
-      animate={controls}
-      initial="hidden"
-      variants={itemVariants}
-    >
-      {children}
-    </motion.div>
-  );
-}
+//   return (
+//     <motion.div
+//       ref={ref}
+//       animate={controls}
+//       initial="hidden"
+//       variants={itemVariants}
+//     >
+//       {children}
+//     </motion.div>
+//   );
+// }
 
 function Home() {
   const [navItems, setNavItems] = useState([]);
@@ -159,11 +159,17 @@ function Home() {
         className="flex flex-row justify-evenly"
         variants={headerVariants}
       >
-        <button onClick={handleHomeClick}>HOME</button>
-        <button onClick={handleProjectsClick}>Projects</button>
+            <motion.button
+              whileHover={{scale: 1.06}}
+              className={`font-mono ${showProjects != true ? 'text-purple-900' : ''}`} onClick={handleHomeClick}>HOME</motion.button>
+            <motion.button
+              whileHover={{ scale: 1.06 }}
+              className={`font-mono ${showProjects == true ? 'text-purple-900' : ''}`} onClick={handleProjectsClick}>PROJECTS</motion.button>
         <Header />
         <div>{JSON.stringify(size)}</div>
-        <button onClick={handleProjectsClick}>CV</button>
+            <motion.button
+              whileHover={{ scale: 1.06 }}
+              className="font-mono" onClick={handleProjectsClick}>CV</motion.button>
       </motion.div>
       <div className="flex flex-row mt-8">
         <AnimatePresence mode="wait">
@@ -186,7 +192,7 @@ function Home() {
                 }}
               >
                 <motion.h1
-                  className="text-3xl font-bold m-4 mb-4"
+                  className="text-3xl font-bold font-mono m-4 mb-4"
                   variants={itemVariants}
                 >
                   Projects
