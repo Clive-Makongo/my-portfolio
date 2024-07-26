@@ -161,7 +161,7 @@ function Home() {
       >
             <motion.button
               whileHover={{scale: 1.06}}
-              className={`font-mono ${showProjects != true ? 'text-purple-900' : ''}`} onClick={handleHomeClick}>HOME</motion.button>
+              className={`font-mono ${showProjects != true ? 'text-purple-900' : ''}`} onClick={handleHomeClick}>ABOUT ME</motion.button>
             <motion.button
               whileHover={{ scale: 1.06 }}
               className={`font-mono ${showProjects == true ? 'text-purple-900' : ''}`} onClick={handleProjectsClick}>PROJECTS</motion.button>
@@ -184,7 +184,7 @@ function Home() {
               className="w-full flex"
             >
               <motion.div
-                className="w-2/12 ml-2 h-[50vwh] border rounded-xl"
+                className="w-2/12 ml-2 h-[50vwh] border rounded"
                 variants={menuVariants}
                 animate={{
                   borderColor: ["#C084FC", "#818CF8", "#6366F1", "#C084FC"],
@@ -206,7 +206,7 @@ function Home() {
                 {selectedProject ? (
                   <Projects link={selectedProject} />
                 ) : (
-                    <div className="w-full text-center flex items-center justify-center">Select a project from the menu</div>
+                    <div className="w-full text-center flex font-mono text-purple-600 items-center justify-center">Select a project from the menu</div>
                 )}
               </motion.div>
             </motion.div>

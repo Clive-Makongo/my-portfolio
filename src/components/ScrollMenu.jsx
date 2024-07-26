@@ -64,7 +64,7 @@ const ScrollMenu = ({ items, onSelectProject }) => {
                     
                     <motion.div 
                         key={item.id}
-                        className={`snap-start my-8 mx-auto font-mono py-4 p-2 cursor-pointer hover:bg-indigo-600 hover:text-black font-bold transition-colors divide-y divide-blue-200 duration-200 rounded-xl w-4/5  ${selectedItemId === item.id ? 'bg-indigo-600 border-2 border-indigo-900' : 'hover:bg-indigo-600 border-2 border-indigo-90'
+                        className={`snap-start my-8 mx-auto font-mono py-4 p-2 cursor-pointer font-[300] hover:bg-indigo-900 hover:text-black transition-colors divide-y divide-purple-600 duration-200 rounded-xl w-4/5  ${selectedItemId === item.id ? 'bg-purple-900 border-2 border-indigo-900' : 'hover:bg-purple-600 border-2 border-indigo-90'
                             }`}
                         initial={{ x: -100 }}
                         animate={{
@@ -81,14 +81,14 @@ const ScrollMenu = ({ items, onSelectProject }) => {
                     </motion.div>
                 ))}
             </div>
-            {/* <button
+            <button
                 onClick={() => scrollMenu('down')}
-                className="mt-2 p-2 bg-indigo-600 rounded-full hover:bg-indigo-700 transition-colors duration-200"
+                className="mt-2 p-2  rounded-full hover:bg-purple-900 transition-colors duration-200"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-2 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
             </svg>
-            </button> */}
+            </button>
         </div>
     );
 };
