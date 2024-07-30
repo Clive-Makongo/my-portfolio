@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { motion, useAnimation, AnimatePresence } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import Navbar from '../components/Navbar'
+import { motion, AnimatePresence } from "framer-motion";
 import Header from "../components/Header";
 import ScrollMenu from "../components/ScrollMenu";
 import Description from "../components/Description";
 import Projects from "../components/Projects";
 import projectData from '../projects.json'
+import HomePage from '../components/HomePage';
 
 // Define variants for animations
 const containerVariants = {
@@ -34,10 +33,10 @@ const menuVariants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { 
-      type: "tween", 
-      ease: "easeInOut", 
-      duration: 3 
+    transition: {
+      type: "tween",
+      ease: "easeInOut",
+      duration: 3
     }
   }
 };
@@ -47,10 +46,10 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { 
-      type: "tween", 
-      ease: "easeOut", 
-      duration: 3 
+    transition: {
+      type: "tween",
+      ease: "easeOut",
+      duration: 3
     }
   },
   hover: {
@@ -71,37 +70,11 @@ const pageTransition = {
   duration: 0.5
 };
 
-// function ScrollReveal({ children }) {
-//   const controls = useAnimation();
-//   const [ref, inView] = useInView({
-//     triggerOnce: true,
-//     threshold: 0.1,
-//   });
-
-//   useEffect(() => {
-//     if (inView) {
-//       controls.start("visible");
-//     }
-//   }, [controls, inView]);
-
-//   return (
-//     <motion.div
-//       ref={ref}
-//       animate={controls}
-//       initial="hidden"
-//       variants={itemVariants}
-//     >
-//       {children}
-//     </motion.div>
-//   );
-// }
-
 function Home() {
   const [navItems, setNavItems] = useState([]);
-  const [showProjects, setShowProjects] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
-  const [loadProjects, setLoadProjects] = useState(false);
   const [size, setSize] = useState({ width: undefined, height: undefined });
+  const [currentPage, setCurrentPage] = useState('home');
 
   useEffect(() => {
     const handleResize = () => {
@@ -132,109 +105,146 @@ function Home() {
 
   const handleProjectSelect = (projectLink) => {
     setSelectedProject(projectLink);
-    //setClickedLink(true);
+    setCurrentPage('projects');
   };
 
   const handleHomeClick = () => {
-    setShowProjects(false);
+    setCurrentPage('home');
     setSelectedProject(null);
   };
 
   const handleProjectsClick = () => {
-    setShowProjects(true);
+    setCurrentPage('projects');
+    setSelectedProject(null);
+  };
+
+  const handleAboutClick = () => {
+    setCurrentPage('about');
     setSelectedProject(null);
   };
 
   return (
-  <>
-
-    { size.width >= 768 ? (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      className="flex flex-col text-white text-neutral w-full"
-    >
-      <motion.div
-        className="flex flex-row justify-evenly"
-        variants={headerVariants}
-      >
-            <motion.button
-              whileHover={{scale: 1.1}}
-              className={`font-mono ${showProjects != true ? 'text-purple-900 font-extrabold' : ''}`} onClick={handleHomeClick}>ABOUT ME</motion.button>
+    <>
+      {size.width >= 768 ? (
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="flex flex-col text-white text-neutral w-full"
+        >
+          <motion.div
+            className="flex flex-row justify-evenly"
+            variants={headerVariants}
+          >
             <motion.button
               whileHover={{ scale: 1.1 }}
-              className={`font-mono ${showProjects == true ? 'text-purple-900 font-extrabold' : ''}`} onClick={handleProjectsClick}>PROJECTS</motion.button>
-        <Header />
-        <div>{JSON.stringify(size)}</div>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              className="font-mono" onClick={handleProjectsClick}>CV</motion.button>
-      </motion.div>
-      <div className="flex flex-row mt-8">
-        <AnimatePresence mode="wait">
-          {showProjects ? (
-            <motion.div
-              key="projects-view"
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-              className="w-full flex"
+              className={`font-mono ${currentPage === 'home' ? 'text-purple-900 font-extrabold' : ''}`}
+              onClick={handleHomeClick}
             >
-              <motion.div
-                className="w-2/12 ml-2 h-[50vwh] border rounded"
-                variants={menuVariants}
-                animate={{
-                  borderColor: ["#C084FC", "#818CF8", "#6366F1", "#C084FC"],
-                  transition: { duration: 3, repeat: Infinity }
-                }}
-              >
-                <motion.h1
-                  className="text-3xl font-bold font-mono m-4 mb-4"
-                  variants={itemVariants}
+              HOME
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              className={`font-mono ${currentPage === 'projects' ? 'text-purple-900 font-extrabold' : ''}`}
+              onClick={handleProjectsClick}
+            >
+              PROJECTS
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              className={`font-mono ${currentPage === 'about' ? 'text-purple-900 font-extrabold' : ''}`}
+              onClick={handleAboutClick}
+            >
+              ABOUT ME
+            </motion.button>
+            <Header />
+            <div>{JSON.stringify(size)}</div>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              className="font-mono"
+            >
+              CV
+            </motion.button>
+          </motion.div>
+          <div className="flex flex-row mt-8">
+            <AnimatePresence mode="wait">
+              {currentPage === 'home' && (
+                <motion.div
+                  key="home-page"
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                  className="w-full"
                 >
-                  Projects
-                </motion.h1>
-                <ScrollMenu items={navItems} onSelectProject={handleProjectSelect} />
-              </motion.div>
-              <motion.div
-                className="w-10/12 flex justify-end flex-row hover:bg-opacity-60 rounded-xl h-[80vwh]"
-                variants={itemVariants}
-              >
-                {selectedProject ? (
-                  <Projects link={selectedProject} />
-                ) : (
-                    <div className="w-full text-center flex font-mono text-purple-600 items-center justify-center">Select a project from the menu</div>
-                )}
-              </motion.div>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="description"
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-              className="w-full"
-            >
-              <Description />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </motion.div >
-      ) : (
-          <div>MOBILE
-            <Description/>
+                  <HomePage />
+                </motion.div>
+              )}
+              {currentPage === 'projects' && (
+                <motion.div
+                  key="projects-view"
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                  className="w-full flex"
+                >
+                  <motion.div
+                    className="w-2/12 ml-2 h-[50vwh] border rounded"
+                    variants={menuVariants}
+                    animate={{
+                      borderColor: ["#C084FC", "#818CF8", "#6366F1", "#C084FC"],
+                      transition: { duration: 3, repeat: Infinity }
+                    }}
+                  >
+                    <motion.h1
+                      className="text-3xl font-bold font-mono m-4 mb-4"
+                      variants={itemVariants}
+                    >
+                      Projects
+                    </motion.h1>
+                    <ScrollMenu items={navItems} onSelectProject={handleProjectSelect} />
+                  </motion.div>
+                  <motion.div
+                    className="w-10/12 flex justify-end flex-row hover:bg-opacity-60 rounded-xl h-[80vwh]"
+                    variants={itemVariants}
+                  >
+                    {selectedProject ? (
+                      <Projects link={selectedProject} />
+                    ) : (
+                      <div className="w-full text-center flex font-mono text-purple-600 items-center justify-center">
+                        Select a project from the menu
+                      </div>
+                    )}
+                  </motion.div>
+                </motion.div>
+              )}
+              {currentPage === 'about' && (
+                <motion.div
+                  key="description"
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                  className="w-full"
+                >
+                  <Description />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-      
+        </motion.div>
+      ) : (
+        <div>
+          MOBILE
+          <Description />
+        </div>
       )}
     </>
   );
 }
-
 
 export default Home;
