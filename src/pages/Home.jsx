@@ -37,7 +37,7 @@ const menuVariants = {
     transition: { 
       type: "tween", 
       ease: "easeInOut", 
-      duration: 0.6 
+      duration: 3 
     }
   }
 };
@@ -50,7 +50,7 @@ const itemVariants = {
     transition: { 
       type: "tween", 
       ease: "easeOut", 
-      duration: 0.5 
+      duration: 3 
     }
   },
   hover: {
@@ -161,10 +161,10 @@ function Home() {
       >
             <motion.button
               whileHover={{scale: 1.1}}
-              className={`font-mono ${showProjects != true ? 'text-purple-900' : ''}`} onClick={handleHomeClick}>ABOUT ME</motion.button>
+              className={`font-mono ${showProjects != true ? 'text-purple-900 font-extrabold' : ''}`} onClick={handleHomeClick}>ABOUT ME</motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
-              className={`font-mono ${showProjects == true ? 'text-purple-900' : ''}`} onClick={handleProjectsClick}>PROJECTS</motion.button>
+              className={`font-mono ${showProjects == true ? 'text-purple-900 font-extrabold' : ''}`} onClick={handleProjectsClick}>PROJECTS</motion.button>
         <Header />
         <div>{JSON.stringify(size)}</div>
             <motion.button
