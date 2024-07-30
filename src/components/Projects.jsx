@@ -10,7 +10,7 @@ function Projects({link}) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1}}
       transition={{ duration: 2 }}
-      className="w-full flex justify-end flex-row hover:bg-opacity-60 rounded hover:bg-indigo-800 h-[81vh]"
+      className="w-full flex justify-end flex-row hover:bg-opacity-60 rounded hover:bg-indigo-800 h-[81vh] "
     >
       <iframe
         src={link}

@@ -192,15 +192,15 @@ function Home() {
                   className="w-full flex"
                 >
                   <motion.div
-                    className="w-2/12 ml-2 h-[50vwh] border rounded"
+                    className="w-2/12 ml-2 h-[50vwh] relative before:content-[''] before:absolute before:top-0 before:right-0 before:w-1/4 before:h-1/4 before:border-t-2 before:border-r-2 before:border-purple-800 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-1/4 after:h-1/4 after:border-b-2 after:border-l-2 after:border-purple-800"
                     variants={menuVariants}
                     animate={{
-                      borderColor: ["#C084FC", "#818CF8", "#6366F1", "#C084FC"],
+                      // borderColor: ["#C084FC", "#818CF8", "#6366F1", "#C084FC"],
                       transition: { duration: 3, repeat: Infinity }
                     }}
                   >
                     <motion.h1
-                      className="text-3xl font-bold font-mono m-4 mb-4"
+                      className="text-3xl font-bold font-mono m-4 mb-4 underline"
                       variants={itemVariants}
                     >
                       Projects
