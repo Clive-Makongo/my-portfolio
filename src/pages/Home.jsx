@@ -160,15 +160,15 @@ function Home() {
         variants={headerVariants}
       >
             <motion.button
-              whileHover={{scale: 1.06}}
+              whileHover={{scale: 1.1}}
               className={`font-mono ${showProjects != true ? 'text-purple-900' : ''}`} onClick={handleHomeClick}>ABOUT ME</motion.button>
             <motion.button
-              whileHover={{ scale: 1.06 }}
+              whileHover={{ scale: 1.1 }}
               className={`font-mono ${showProjects == true ? 'text-purple-900' : ''}`} onClick={handleProjectsClick}>PROJECTS</motion.button>
         <Header />
         <div>{JSON.stringify(size)}</div>
             <motion.button
-              whileHover={{ scale: 1.06 }}
+              whileHover={{ scale: 1.1 }}
               className="font-mono" onClick={handleProjectsClick}>CV</motion.button>
       </motion.div>
       <div className="flex flex-row mt-8">

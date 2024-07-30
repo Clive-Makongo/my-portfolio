@@ -19,6 +19,7 @@ const ScrollMenu = ({ items, onSelectProject }) => {
             if (menuRef.current) {
                 e.preventDefault();
                 menuRef.current.scrollTop += e.deltaY;
+                
             }
         };
 
