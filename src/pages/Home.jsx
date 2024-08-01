@@ -177,7 +177,7 @@ function Home() {
   const renderMobileContent = () => (
     <div className="flex flex-col min-h-screen bg-black text-white">
       <header className="bg-purple-900 p-4 flex justify-between items-center">
-        <h1 className="font-mono text-xl">Your Name</h1>
+        <h1 className="font-mono text-xl">Clive Makong'o</h1>
         <button onClick={toggleMobileMenu} className="text-white text-2xl">
           ☰
         </button>
