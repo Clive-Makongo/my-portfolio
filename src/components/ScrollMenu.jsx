@@ -48,7 +48,7 @@ const ScrollMenu = ({ items, onSelectProject }) => {
     };
 
     return (
-        <div className="flex flex-col items-end mx-1">
+        <div className="h-[350px] flex flex-col items-end mx-1">
             {/* <button
                 onClick={() => scrollMenu('up')}
                 className="mb-2 p-2 bg-indigo-600 rounded-full hover:bg-indigo-700 transition-colors duration-200"
@@ -59,14 +59,14 @@ const ScrollMenu = ({ items, onSelectProject }) => {
             </button> */}
             <div
                 ref={menuRef}
-                className="h-[400px] w-full p-4 divide-y divide-indigo-600 justify-center overflow-y-hidden snap-y snap-mandatory scrollbar-hide"
+                className=" w-full p-4  justify-center overflow-y-hidden snap-y snap-mandatory scrollbar-hide"
             >
                 {delayedItems.map((item, index) => (
                     
                     <motion.div 
                         key={item.id}
-                        className={`snap-start my-8 mx-auto font-mono py-4 p-2 cursor-pointer font-[300] hover:bg-indigo-900 hover:text-black transition-colors divide-y divide-purple-600 duration-200 rounded-xl w-4/5  ${selectedItemId === item.id ? 'bg-purple-900 border-2 border-indigo-900' : 'hover:bg-purple-600 border-2 border-indigo-90'
-                            }`}
+                        className={`snap-start my-8 mx-auto font-mono py-4 p-2 cursor-crosshair font-[300] hover:bg-indigo-900 hover:text-black transition-colors duration-200 w-4/5  ${selectedItemId === item.id ? 'bg-purple-900 ' : 'hover:bg-purple-600 '
+                            } relative`}
                         initial={{ x: -100 }}
                         animate={{
                             x: 0,
@@ -77,7 +77,10 @@ const ScrollMenu = ({ items, onSelectProject }) => {
                         whileTap={{ scale: 0.95 }}
                         onClick={() => handleItemClick(item)}
                     >
-                        {item.title}
+                        <div className="absolute top-0 right-0 w-1/4 h-1/4 border-t-2 border-r-2 border-purple-800"></div>
+                        <div className="absolute bottom-0 left-0 w-1/4 h-1/4 border-b-2 border-l-2 border-purple-800"></div>
+
+                        {item.title}: {index}
                         <hr className='color' />
                     </motion.div>
                 ))}
