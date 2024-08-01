@@ -157,8 +157,8 @@ function Home() {
             >
               ABOUT ME
             </motion.button>
-            <Header />
-            <div>{JSON.stringify(size)}</div>
+            
+            
             <motion.button
               whileHover={{ scale: 1.1 }}
               className="font-mono"
@@ -192,7 +192,7 @@ function Home() {
                   className="w-full flex"
                 >
                   <motion.div
-                    className="w-2/12 ml-2 h-[50vwh] relative before:content-[''] before:absolute before:top-0 before:right-0 before:w-1/4 before:h-1/4 before:border-t-2 before:border-r-2 before:border-purple-800 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-1/4 after:h-1/4 after:border-b-2 after:border-l-2 after:border-purple-800"
+                    className="w-2/12 ml-2 m-4 h-[50vwh] relative before:content-[''] before:absolute before:top-0 before:right-0 before:w-1/4 before:h-1/4 before:border-t-2 before:border-r-2 before:border-purple-800 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-1/4 after:h-1/4 after:border-b-2 after:border-l-2 after:border-purple-800"
                     variants={menuVariants}
                     animate={{
                       // borderColor: ["#C084FC", "#818CF8", "#6366F1", "#C084FC"],
