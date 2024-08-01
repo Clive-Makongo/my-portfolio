@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "../components/Header";
 import ScrollMenu from "../components/ScrollMenu";
+import MobileProjects from '../components/MobileProjects'
 import Description from "../components/Description";
 import Projects from "../components/Projects";
-import projectData from '../projects.json'
+import projectData from '../projects.json';
 import HomePage from '../components/HomePage';
 
 // Define variants for animations
@@ -70,11 +71,17 @@ const pageTransition = {
   duration: 0.5
 };
 
+const mobileMenuVariants = {
+  closed: { opacity: 0, x: "-100%" },
+  open: { opacity: 1, x: 0 }
+};
+
 function Home() {
   const [navItems, setNavItems] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [size, setSize] = useState({ width: undefined, height: undefined });
   const [currentPage, setCurrentPage] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -123,6 +130,105 @@ function Home() {
     setSelectedProject(null);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const renderMobileMenu = () => (
+    <motion.div
+      className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 z-50"
+      variants={mobileMenuVariants}
+      initial="closed"
+      animate={isMobileMenuOpen ? "open" : "closed"}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="flex flex-col items-center justify-center h-full">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          className={`font-mono text-2xl mb-6 ${currentPage === 'home' ? 'text-purple-900 font-extrabold underline' : 'text-white'}`}
+          onClick={() => { handleHomeClick(); toggleMobileMenu(); }}
+        >
+          HOME
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          className={`font-mono text-2xl mb-6 ${currentPage === 'projects' ? 'text-purple-900 font-extrabold underline' : 'text-white'}`}
+          onClick={() => { handleProjectsClick(); toggleMobileMenu(); }}
+        >
+          PROJECTS
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          className={`font-mono text-2xl mb-6 ${currentPage === 'about' ? 'text-purple-900 font-extrabold underline' : 'text-white'}`}
+          onClick={() => { handleAboutClick(); toggleMobileMenu(); }}
+        >
+          ABOUT ME
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          className="font-mono text-2xl mb-6 text-white"
+        >
+          CV
+        </motion.button>
+      </div>
+    </motion.div>
+  );
+
+  const renderMobileContent = () => (
+    <div className="flex flex-col min-h-screen bg-black text-white">
+      <header className="bg-purple-900 p-4 flex justify-between items-center">
+        <h1 className="font-mono text-xl">Your Name</h1>
+        <button onClick={toggleMobileMenu} className="text-white text-2xl">
+          ☰
+        </button>
+      </header>
+      <main className="flex-grow p-4">
+        <AnimatePresence mode="wait">
+          {currentPage === 'home' && (
+            <motion.div
+              key="home-page"
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <HomePage />
+            </motion.div>
+          )}
+          {currentPage === 'projects' && (
+            <motion.div
+              key="projects-view"
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <h2 className="text-2xl font-mono mb-4 text-purple-600">Projects</h2>
+              <div className="mb-4">
+                <MobileProjects/>
+               </div>
+            </motion.div>
+          )}
+          {currentPage === 'about' && (
+            <motion.div
+              key="description"
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Description />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </main>
+      {renderMobileMenu()}
+    </div>
+  );
+
   return (
     <>
       {size.width >= 768 ? (
@@ -130,7 +236,7 @@ function Home() {
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="flex flex-col text-white text-neutral w-[100vwh]"
+          className="flex flex-col text-white text-neutral w-[100vwh] bg-black"
         >
           <motion.div
             className="flex flex-row justify-evenly pt-6"
@@ -157,8 +263,6 @@ function Home() {
             >
               ABOUT ME
             </motion.button>
-            
-            
             <motion.button
               whileHover={{ scale: 1.1 }}
               className="font-mono"
@@ -195,7 +299,6 @@ function Home() {
                     className="w-2/12 ml-2 m-4 h-[50vwh] relative before:content-[''] before:absolute before:top-0 before:right-0 before:w-1/4 before:h-1/4 before:border-t-2 before:border-r-2 before:border-purple-800 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-1/4 after:h-1/4 after:border-b-2 after:border-l-2 after:border-purple-800"
                     variants={menuVariants}
                     animate={{
-                      // borderColor: ["#C084FC", "#818CF8", "#6366F1", "#C084FC"],
                       transition: { duration: 3, repeat: Infinity }
                     }}
                   >
@@ -238,10 +341,7 @@ function Home() {
           </div>
         </motion.div>
       ) : (
-        <div>
-          MOBILE
-          <Description />
-        </div>
+        renderMobileContent()
       )}
     </>
   );
