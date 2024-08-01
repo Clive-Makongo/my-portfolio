@@ -130,10 +130,10 @@ function Home() {
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="flex flex-col text-white text-neutral w-full"
+          className="flex flex-col text-white text-neutral w-[100vwh]"
         >
           <motion.div
-            className="flex flex-row justify-evenly"
+            className="flex flex-row justify-evenly pt-6"
             variants={headerVariants}
           >
             <motion.button
@@ -200,7 +200,7 @@ function Home() {
                     }}
                   >
                     <motion.h1
-                      className="text-3xl font-bold font-mono m-4 mb-4 underline"
+                      className="text-2xl font-[120] font-mono m-4 mb-4 underline"
                       variants={itemVariants}
                     >
                       Projects
