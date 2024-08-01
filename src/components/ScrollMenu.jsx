@@ -59,7 +59,7 @@ const ScrollMenu = ({ items, onSelectProject }) => {
             </button> */}
             <div
                 ref={menuRef}
-                className=" w-full p-4  justify-center overflow-y-hidden snap-y snap-mandatory scrollbar-hide"
+                className=" w-full  p-4  justify-center overflow-y-scroll snap-y snap-mandatory scrollbar-hide"
             >
                 {delayedItems.map((item, index) => (
                     
@@ -79,6 +79,8 @@ const ScrollMenu = ({ items, onSelectProject }) => {
                     >
                         <div className="absolute top-0 right-0 w-1/4 h-1/4 border-t-2 border-r-2 border-purple-800"></div>
                         <div className="absolute bottom-0 left-0 w-1/4 h-1/4 border-b-2 border-l-2 border-purple-800"></div>
+                        
+                        
 
                         {item.title}: {index}
                         <hr className='color' />
