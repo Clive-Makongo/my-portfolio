@@ -1,6 +1,8 @@
 import React from 'react';
+import { useState,  useEffect } from 'react';
 import { motion } from 'framer-motion';
 import projectData from '../projects.json'
+import PROJECTS from '../gallery';
 
 const projectVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -18,8 +20,12 @@ const projectVariants = {
 };
 
 const ProjectGallery = () => {
+
+    useEffect(() => {
+        console.log(PROJECTS, " Projects")
+    })
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 font-mono">
             {Object.entries(projectData).map(([name, link], index) => (
                 <motion.div
                     key={index}
@@ -32,7 +38,8 @@ const ProjectGallery = () => {
                     <a href={link} target="_blank" rel="noopener noreferrer" className="block">
                         <div className="h-48 bg-gray-700 flex items-center justify-center">
                             {/* Placeholder for screenshot */}
-                            <span className="text-gray-500">Screenshot coming soon</span>
+                            
+                            <img src={PROJECTS[index].image} alt="" />
                         </div>
                         <div className="p-4">
                             <h3 className="text-xl font-semibold text-purple-500 mb-2">{name}</h3>
@@ -41,6 +48,10 @@ const ProjectGallery = () => {
                     </a>
                 </motion.div>
             ))}
+            {PROJECTS.map((proj, index) => {
+                
+                console.log("hi")
+            })}
         </div>
     );
 };
