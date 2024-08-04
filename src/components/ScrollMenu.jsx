@@ -59,7 +59,7 @@ const ScrollMenu = ({ items, onSelectProject }) => {
             </button> */}
             <div
                 ref={menuRef}
-                className=" w-full p-4  justify-center overflow-y-hidden snap-y snap-mandatory scrollbar-hide"
+                className=" w-full  p-4  justify-center overflow-y-scroll snap-y snap-mandatory scrollbar-hide"
             >
                 {delayedItems.map((item, index) => (
                     
@@ -79,17 +79,16 @@ const ScrollMenu = ({ items, onSelectProject }) => {
                     >
                         <div className="absolute top-0 right-0 w-1/4 h-1/4 border-t-2 border-r-2 border-purple-800"></div>
                         <div className="absolute bottom-0 left-0 w-1/4 h-1/4 border-b-2 border-l-2 border-purple-800"></div>
-
-                        {item.title}: {index}
+                        {item.title}
                         <hr className='color' />
                     </motion.div>
                 ))}
             </div>
             <button
                 onClick={() => scrollMenu('down')}
-                className="mt-2 p-2  rounded-full hover:bg-purple-900 transition-colors duration-200"
+                className="mt-2 p-2 rounded-full hover:bg-purple-900 transition-colors duration-200"
             >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-2 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
             </svg>
             </button>
