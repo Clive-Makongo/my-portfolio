@@ -244,28 +244,28 @@ function Home() {
           >
             <motion.button
               whileHover={{ scale: 1.1 }}
-              className={`font-mono ${currentPage === 'home' ? 'text-purple-900 font-extrabold underline' : ''}`}
+              className={`font-mono cursor-crosshair ${currentPage === 'home' ? 'text-purple-900 font-extrabold underline' : ''}`}
               onClick={handleHomeClick}
             >
               HOME
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
-              className={`font-mono ${currentPage === 'projects' ? 'text-purple-900 font-extrabold underline' : ''}`}
+              className={`font-mono cursor-crosshair ${currentPage === 'projects' ? 'text-purple-900 font-extrabold underline' : ''}`}
               onClick={handleProjectsClick}
             >
               PROJECTS
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
-              className={`font-mono ${currentPage === 'about' ? 'text-purple-900 font-extrabold underline' : ''}`}
+              className={`font-mono cursor-crosshair ${currentPage === 'about' ? 'text-purple-900 font-extrabold underline' : ''}`}
               onClick={handleAboutClick}
             >
               ABOUT ME
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
-              className="font-mono"
+              className="font-mono cursor-crosshair"
             >
               CV
             </motion.button>
