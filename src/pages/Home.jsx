@@ -293,17 +293,17 @@ function Home() {
                   exit="out"
                   variants={pageVariants}
                   transition={pageTransition}
-                  className="w-full flex"
+                  className="w-full h-[80vwh]  overflow-y-hidden flex"
                 >
                   <motion.div
-                    className="w-2/12 ml-2 m-4 h-[50vwh] relative before:content-[''] before:absolute before:top-0 before:right-0 before:w-1/4 before:h-1/4 before:border-t-2 before:border-r-2 before:border-purple-800 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-1/4 after:h-1/4 after:border-b-2 after:border-l-2 after:border-purple-800"
+                    className="w-2/12 ml-2 m-4 "
                     variants={menuVariants}
                     animate={{
                       transition: { duration: 3, repeat: Infinity }
                     }}
                   >
                     <motion.h1
-                      className="text-2xl font-[120] font-mono m-4 mb-4 underline"
+                      className="text-2xl font-[120] h-[80vwh] font-mono m-4 mb-4 underline"
                       variants={itemVariants}
                     >
                       Projects

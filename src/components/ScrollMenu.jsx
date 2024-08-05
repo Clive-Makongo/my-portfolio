@@ -48,7 +48,7 @@ const ScrollMenu = ({ items, onSelectProject }) => {
     };
 
     return (
-        <div className="h-[350px] flex flex-col items-end mx-1">
+        <div className="h-full overflow-y-hidden flex flex-col items-end mx-1">
             {/* <button
                 onClick={() => scrollMenu('up')}
                 className="mb-2 p-2 bg-indigo-600 rounded-full hover:bg-indigo-700 transition-colors duration-200"
