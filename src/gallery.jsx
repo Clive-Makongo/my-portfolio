@@ -55,14 +55,14 @@ const PROJECTS = [
     "title": "Physics Engine",
     "link": "https://clive-makongo.github.io/physEng/",
     "image": phys,
-    "description": "This programme creates a random password of various lengths and characteristics based on chosen elements by the user."
+    "description": "A personal project I built utilising vector calculus to build a physics Engine."
   },
   {
     "id": 7,
     "title": "Travelling Salesman",
     "link": "https://clive-makongo.github.io/TravellingSalesman/",
     "image": travel,
-    "description": "This programme creates a random password of various lengths and characteristics based on chosen elements by the user."
+    "description": "My ongoing attempt at the travelling salesman problem"
   }
 ]
 
