@@ -37,8 +37,6 @@ const ProjectGallery = () => {
                 >
                     <a href={link} target="_blank" rel="noopener noreferrer" className="block">
                         <div className="h-48 bg-gray-700 flex items-center justify-center">
-                            {/* Placeholder for screenshot */}
-                            
                             <img src={PROJECTS[index].image} alt="" />
                         </div>
                         <div className="p-4">
