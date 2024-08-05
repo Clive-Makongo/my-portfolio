@@ -48,7 +48,7 @@ const ScrollMenu = ({ items, onSelectProject }) => {
     };
 
     return (
-        <div className="h-full overflow-y-hidden flex flex-col items-end mx-1">
+        <div className="h-[100%] flex flex-col items-end mx-1">
             {/* <button
                 onClick={() => scrollMenu('up')}
                 className="mb-2 p-2 bg-indigo-600 rounded-full hover:bg-indigo-700 transition-colors duration-200"
@@ -59,7 +59,7 @@ const ScrollMenu = ({ items, onSelectProject }) => {
             </button> */}
             <div
                 ref={menuRef}
-                className=" w-full  p-4  justify-center overflow-y-scroll snap-y snap-mandatory scrollbar-hide"
+                className=" w-full  p-4  justify-center flex-grow overflow-y-scroll snap-y snap-mandatory scrollbar-hide"
             >
                 {delayedItems.map((item, index) => (
                     
@@ -86,9 +86,9 @@ const ScrollMenu = ({ items, onSelectProject }) => {
             </div>
             <button
                 onClick={() => scrollMenu('down')}
-                className="mt-2 p-2 rounded-full hover:bg-purple-900 transition-colors duration-200"
+                className="p-2 h-full w-4 rounded-full hover:bg-purple-900 transition-colors duration-200"
             >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className=" w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
             </svg>
             </button>

@@ -236,7 +236,7 @@ function Home() {
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="flex flex-col text-white text-neutral w-[100vwh] bg-black"
+          className="flex flex-col text-white text-neutral w-[100vwh] h-[90vwh] scrollbar-hide overflow-y-hidden  bg-black"
         >
           <motion.div
             className="flex flex-row justify-evenly pt-6"
@@ -293,17 +293,17 @@ function Home() {
                   exit="out"
                   variants={pageVariants}
                   transition={pageTransition}
-                  className="w-full h-[80vwh]  overflow-y-hidden flex"
+                  className="w-full h-[85vh] overflow-hidden flex"
                 >
                   <motion.div
-                    className="w-2/12 ml-2 m-4 "
+                    className="w-2/12 ml-2 m-4 overflow-scroll snap-y snap-mandatory scrollbar-hide border-2 rounded-xl border-purple-900"
                     variants={menuVariants}
                     animate={{
                       transition: { duration: 3, repeat: Infinity }
                     }}
                   >
                     <motion.h1
-                      className="text-2xl font-[120] h-[80vwh] font-mono m-4 mb-4 underline"
+                      className="text-2xl font-[120] font-mono m-4 mb-4 underline"
                       variants={itemVariants}
                     >
                       Projects
@@ -311,7 +311,7 @@ function Home() {
                     <ScrollMenu items={navItems} onSelectProject={handleProjectSelect} />
                   </motion.div>
                   <motion.div
-                    className="w-10/12 flex justify-end flex-row hover:bg-opacity-60 rounded-xl h-[80vwh]"
+                    className="w-10/12 flex justify-end flex-row hover:bg-opacity-60 rounded-xl h-[80vh]"
                     variants={itemVariants}
                   >
                     {selectedProject ? (
