@@ -5,3 +5,13 @@
 body {
   background-color: black;
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: hidden;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

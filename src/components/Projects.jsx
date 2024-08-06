@@ -1,36 +1,22 @@
 import { motion } from "framer-motion";
-import ProjectCard from "./ProjectCard";
 import { useEffect, useState } from "react";
+import image from '../assets/images/profile-pic.jpg'
 
-function Projects() {
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    const proj = Array(1)
-      .fill()
-      .map(() => <ProjectCard />);
-    setCards(proj);
-    console.log(proj, cards);
-  }, []);
+function Projects({link}) {
+  
 
   return (
     <motion.div
-      initial={{ x: -1000 }}
-      animate={{ x: 0 }}
-      transition={{ type: "spring", stiffness: 40, duration: 1.5 }}
-      className="w-9/12 hover:bg-opacity-60 border-2 border-indigo-800 rounded-xl hover:bg-indigo-800 p-2 flex flex-row"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1}}
+      transition={{ duration: 2 }}
+      className="w-full flex justify-end flex-row hover:bg-opacity-60 h-[81vh] "
     >
-      {cards.map((card, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: index * 0.6, duration: 1 }} // Delay each card by 2 seconds
-          className="w-full flex flex-row"
-        >
-          {card}
-        </motion.div>
-      ))}
+      <iframe
+        src={link}
+        className="w-full h-full relative before:content-[''] before:absolute before:top-0 before:right-0 before:w-1/4 before:h-1/4 before:border-t-2 before:border-r-2 before:border-purple-800 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-1/4 after:h-1/4 after:border-b-2 after:border-l-2 after:border-purple-800"
+        title="Embedded Project"
+      ></iframe>
     </motion.div>
   );
 }
