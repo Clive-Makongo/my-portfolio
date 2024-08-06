@@ -40,7 +40,7 @@ const ProjectGallery = () => {
                             <img src={PROJECTS[index].image} alt="" className='m-4' />
                         </div>
                         <div className="p-4 m-4">
-                            <h3 className="text-xl font-semibold text-purple-500 mb-2">{name}</h3>
+                            <h3 className="text-xl mt-6  font-semibold text-purple-500 mb-2">{name}</h3>
                             <p className="text-gray-400 text-sm">{PROJECTS[index].description}t</p>
                         </div>
                     </a>
