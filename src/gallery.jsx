@@ -13,14 +13,14 @@ const PROJECTS = [
     "title": "Fuel Fit",
     "link": "https://group4-wellness-app.netlify.app/",
     "image": fuelFit,
-    "description": "A website to help simplify fitness. It consists of a meal planner with calorie and diet-type features, to ensure it is inclusive to dietary requirements. It also has a workout planner to help you plan your fitness. And last but not least, a self-care page, where you can input a skincare routine and see helpful stretching videos"
+    "description": "A website to help simplify fitness. It consists of a meal planner with calorie and diet-type features, to ensure it is inclusive to dietary requirements. It also has a workout planner to help you plan your fitness. And last but not least, a self-care page, where you can input a skincare routine and see helpful stretching videos. I was responsible for the entire meal plan page, including structuring the APIs"
   },
   {
     "id": 1,
     "title": "Mood App",
     "link": "https://angelica-zach.github.io/Mood-App/",
     "image": moodApp,
-    "description": "MoodMatch is a web application that helps users discover music playlists based on their mood, provides information about venues related to the artists in the playlist, and suggests activities in the area.The mood is picked from a carousel of possible mood cards , and is then linked to a spotify API to match this to music. This then links to BandsInTown API to show events for this artist"
+    "description": "MoodMatch is a web application that helps users discover music playlists based on their mood, provides information about venues related to the artists in the playlist, and suggests activities in the area. The mood is picked from a carousel of possible mood cards, and is then linked to a spotify API to match this to music. This then links to BandsInTown API to show events for this artist"
   },
   {
     "id": 2,

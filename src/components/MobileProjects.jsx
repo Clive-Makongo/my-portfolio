@@ -37,11 +37,9 @@ const ProjectGallery = () => {
                 >
                     <a href={link} target="_blank" rel="noopener noreferrer" className="block">
                         <div className="h-48 bg-gray-700 flex items-center justify-center">
-                            {/* Placeholder for screenshot */}
-                            
                             <img src={PROJECTS[index].image} alt="" />
                         </div>
-                        <div className="p-4">
+                        <div className="p-4 m-4">
                             <h3 className="text-xl font-semibold text-purple-500 mb-2">{name}</h3>
                             <p className="text-gray-400 text-sm">{PROJECTS[index].description}t</p>
                         </div>
