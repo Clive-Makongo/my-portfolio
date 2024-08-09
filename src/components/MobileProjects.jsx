@@ -41,7 +41,7 @@ const ProjectGallery = () => {
                         </div>
                         <div className="p-4 m-4">
                             <h3 className="text-xl mt-6  font-semibold text-purple-500 mb-2">{name}</h3>
-                            <p className="text-gray-400 text-sm">{PROJECTS[index].description}t</p>
+                            <p className="text-gray-400 text-sm">{PROJECTS[index].description}</p>
                         </div>
                     </a>
                 </motion.div>
