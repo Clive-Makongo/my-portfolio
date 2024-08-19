@@ -364,9 +364,9 @@ function Home() {
                   exit="out"
                   variants={pageVariants}
                   transition={pageTransition}
-                  className="w-full h-[80vh]"
+                  className="w-full h-[80vh] flex justify-center"
                 >
-                  <embed src={Clive} type="application/pdf" width="100%" height="100%" />
+                  <embed src={Clive} type="application/pdf" width="90%" height="100%" />
                 </motion.div>
               )}
             </AnimatePresence>
