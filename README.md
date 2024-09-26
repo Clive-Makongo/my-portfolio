@@ -28,7 +28,7 @@ At DIFOKO IT Solutions BV, I am responsible for:
 
 ## 🔗 Connect with Me
 
-- [LinkedIn] (https://www.linkedin.com/in/clive-makongo)
+- [LinkedIn](https://www.linkedin.com/in/clive-makongo)
 - [Portfolio Website](https://clivemakongo.netlify.app/)
 - [GitHub](https://github.com/Clive-Makongo)
 
