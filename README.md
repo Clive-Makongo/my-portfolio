@@ -1,4 +1,4 @@
-# Clive Makong'o - Front-End Web Developer
+# Clive Makong'o - Software Developer
 
 👋 Hello! I'm Clive Makong'o, a Software Developer currently based in London.
 
