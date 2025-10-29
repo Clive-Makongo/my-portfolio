@@ -11,7 +11,7 @@ const PROJECTS = [
   {
     "id": 0,
     "title": "Fuel Fit",
-    "link": "https://group4-wellness-app.netlify.app/",
+    "link": "https://fuel-fit-two.vercel.app/",
     "image": fuelFit,
     "description": "A website to help simplify fitness. It consists of a meal planner with calorie and diet-type features, to ensure it is inclusive to dietary requirements. It also has a workout planner to help you plan your fitness. And last but not least, a self-care page, where you can input a skincare routine and see helpful stretching videos. I was responsible for the entire meal plan page, including structuring the APIs"
   },
