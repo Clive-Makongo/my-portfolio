@@ -7,6 +7,7 @@ import Description from "../components/Description";
 import Projects from "../components/Projects";
 import projectData from '../projects.json';
 import HomePage from '../components/HomePage';
+import Clive from '../assets/files/Clive.pdf'
 
 // Define variants for animations
 const containerVariants = {
@@ -164,12 +165,16 @@ function Home() {
         >
           ABOUT ME
         </motion.button>
-        <motion.button
+        <motion.a
+          href={Clive}
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.1 }}
-          className="font-mono text-2xl mb-6 text-white"
+          className="font-mono text-2xl cursor-crosshair text-white"
+          onClick={toggleMobileMenu}
         >
           CV
-        </motion.button>
+        </motion.a>
       </div>
     </motion.div>
   );
@@ -207,8 +212,8 @@ function Home() {
             >
               <h2 className="text-2xl font-mono mb-4 text-purple-600">Projects</h2>
               <div className="mb-4">
-                <MobileProjects/>
-               </div>
+                <MobileProjects />
+              </div>
             </motion.div>
           )}
           {currentPage === 'about' && (
@@ -221,6 +226,19 @@ function Home() {
               transition={pageTransition}
             >
               <Description />
+            </motion.div>
+          )}
+          {currentPage === 'cv' && (
+            <motion.div
+              key="cv"
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+              className="w-full h-[80vh]"
+            >
+              <embed src={Clive} type="application/pdf" width="100%" height="100%" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -265,7 +283,8 @@ function Home() {
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
-              className="font-mono cursor-crosshair"
+              className={`font-mono cursor-crosshair ${currentPage === 'cv' ? 'text-purple-900 font-extrabold underline' : ''}`}
+              onClick={() => setCurrentPage('cv')}
             >
               CV
             </motion.button>
@@ -335,6 +354,19 @@ function Home() {
                   className="w-full"
                 >
                   <Description />
+                </motion.div>
+              )}
+              {currentPage === 'cv' && (
+                <motion.div
+                  key="cv"
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                  className="w-full h-[80vh] flex justify-center"
+                >
+                  <embed src={Clive} type="application/pdf" width="90%" height="100%" />
                 </motion.div>
               )}
             </AnimatePresence>
